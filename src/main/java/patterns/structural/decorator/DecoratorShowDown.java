@@ -1,13 +1,13 @@
 package patterns.structural.decorator;
 
-import patterns.structural.factory.ShapeFactory;
+import patterns.structural.factory.ShapeFactoryImpl;
 import shapes.Colors;
 import shapes.Shapes;
 
 public class DecoratorShowDown {
 
     public static void main(String[] args){
-        ShapeFactory factory = new ShapeFactory();
+        ShapeFactoryImpl factory = new ShapeFactoryImpl();
         factory.createShape(Shapes.TRIANGLE, Colors.GREEN, .25).draw();
         factory.createShape(Shapes.TRIANGLE, Colors.BLUE).draw();
         factory.createShape(Shapes.TRIANGLE, Colors.RED).draw();
