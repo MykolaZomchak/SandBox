@@ -1,20 +1,34 @@
 package patterns.structural.factory;
 
+import patterns.structural.decorator.ColoredShapeDecorator;
+import patterns.structural.decorator.ShapeWithHolesDecorator;
 import shapes.*;
 
 public class ShapeFactory {
 
-    public Shape createShape(Shapes type, ShapeSizes size) {
+    public final double size = 1;
+
+    public Shape createShape(Shapes type) {
+        String description = type.toString().charAt(0) + type.toString().toLowerCase().substring(1);
         if (type == Shapes.CIRCLE) {
-            return new Circle(size.toInt());
+            return new Circle(description, size);
         }
-        if (type == Shapes.RECTANGULAR_TRIANGLE) {
-            return new Triangle(size.toInt(), size.toInt(), size.toInt() * Math.sqrt(2));
-        }
-        if (type == Shapes.EQUILATERAL_TRIANGLE) {
-            return new Triangle(size.toInt(), size.toInt(), size.toInt());
+        if (type == Shapes.TRIANGLE) {
+            return new Triangle(description, size, size, size * Math.sqrt(2));
         }
         throw new IllegalArgumentException("There is no such shape(" + type.toString() + ")");
+    }
+
+    public Shape createShape(Shapes type, Colors color){
+        return new ColoredShapeDecorator(createShape(type), color);
+    }
+
+    public Shape createShape(Shapes type, double holesArea){
+        return new ShapeWithHolesDecorator(createShape(type), holesArea);
+    }
+
+    public Shape createShape(Shapes type, Colors color, double holesArea){
+        return new ColoredShapeDecorator(createShape(type, holesArea), color);
     }
 
 }
