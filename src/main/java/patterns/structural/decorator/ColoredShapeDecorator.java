@@ -5,7 +5,6 @@ import shapes.Shape;
 
 public class ColoredShapeDecorator extends ShapeDecorator {
 
-    private static final String ANSI_RESET = "\u001B[0m";
     private Colors color;
 
     public ColoredShapeDecorator(Shape shape, Colors color) {
@@ -17,6 +16,6 @@ public class ColoredShapeDecorator extends ShapeDecorator {
     public void draw() {
         System.out.print(color);
         super.draw();
-        System.out.print(ANSI_RESET);
+        System.out.print(Colors.NO_COLOR);
     }
 }

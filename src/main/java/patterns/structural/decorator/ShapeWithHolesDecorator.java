@@ -12,6 +12,12 @@ public class ShapeWithHolesDecorator extends ShapeDecorator{
     }
 
     @Override
+    public void draw() {
+        System.out.print("(Area of holes: " + holesArea + ") ");
+        super.draw();
+    }
+
+    @Override
     public double getArea() {
         return super.getArea() - holesArea;
     }

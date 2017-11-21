@@ -8,19 +8,21 @@ public abstract class BaseDevice implements Device {
         return volumeLevel;
     }
 
-    public void mute(){
+    public void mute() {
+
+        System.out.println("Device muted");
         volumeLevel = 0;
     }
 
     @Override
     public void buttonThreePressed() {
-        if(volumeLevel<=100)
+        if (volumeLevel <= 100)
             volumeLevel++;
     }
 
     @Override
     public void buttonFourPressed() {
-        if(volumeLevel>0)
+        if (volumeLevel > 0)
             volumeLevel--;
     }
 }

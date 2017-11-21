@@ -17,6 +17,8 @@ public class TVDevice extends BaseDevice {
     public void buttonTwoPressed() {
         if (channel > 0)
             channel--;
+        System.out.println("Switch to " + getChannel() + " channel");
+
     }
 
     @Override

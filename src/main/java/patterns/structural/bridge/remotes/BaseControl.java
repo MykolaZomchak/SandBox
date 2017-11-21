@@ -6,7 +6,7 @@ public abstract class BaseControl implements Remote {
 
     protected Device device;
 
-    public BaseControl(Device device){
+    public BaseControl(Device device) {
         this.device = device;
     }
 
@@ -30,4 +30,8 @@ public abstract class BaseControl implements Remote {
         device.buttonFourPressed();
     }
 
+    @Override
+    public void setDevice(Device newDevice) {
+        device = newDevice;
+    }
 }

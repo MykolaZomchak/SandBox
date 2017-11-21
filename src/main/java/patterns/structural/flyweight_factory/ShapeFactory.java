@@ -1,4 +1,4 @@
-package patterns.structural.factory;
+package patterns.structural.flyweight_factory;
 
 import shapes.Colors;
 import shapes.Shape;

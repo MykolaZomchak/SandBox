@@ -1,13 +1,14 @@
 package patterns.structural.facade;
 
-import patterns.structural.factory.ShapeFactoryImpl;
+import patterns.structural.flyweight_factory.FlyweightShapeFactory;
+import patterns.structural.flyweight_factory.SimpleShapeFactory;
 import shapes.Colors;
 import shapes.Shapes;
 
-public abstract class BaseShapeDrawer implements ShapeDrawer{
+public abstract class BaseShapeDrawer implements ShapeDrawer {
 
-    private ShapeFactoryImpl factory = new ShapeFactoryImpl();
     protected Shapes shape;
+    private SimpleShapeFactory factory = new FlyweightShapeFactory();
 
     public void draw() {
         factory.createShape(shape).draw();

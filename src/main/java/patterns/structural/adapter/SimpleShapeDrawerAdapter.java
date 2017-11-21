@@ -5,9 +5,10 @@ import patterns.structural.facade.ShapeDrawer;
 import patterns.structural.facade.TriangleDrawer;
 import shapes.Colors;
 
-import static shapes.Colors.*;
+import static shapes.Colors.GREEN;
+import static shapes.Colors.YELLOW;
 
-public class ShapeDrawerAdapterImpl implements ShapeDrawerAdapter {
+public class SimpleShapeDrawerAdapter implements ShapeDrawerAdapter {
 
     ShapeDrawer circleDrawer = new CircleDrawer();
     ShapeDrawer triangleDrawer = new TriangleDrawer();
@@ -27,10 +28,4 @@ public class ShapeDrawerAdapterImpl implements ShapeDrawerAdapter {
         circleDrawer.draw(Colors.RED);
     }
 
-    @Override
-    public void drawColorfulTriangles() {
-        triangleDrawer.draw(GREEN);
-        triangleDrawer.draw(Colors.YELLOW);
-        triangleDrawer.draw(Colors.RED);
-    }
 }

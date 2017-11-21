@@ -1,6 +1,6 @@
 package patterns.structural.bridge.devices;
 
-public class DvdDevice extends  BaseDevice {
+public class DvdDevice extends BaseDevice {
 
     private int filmTime;
 
@@ -15,7 +15,9 @@ public class DvdDevice extends  BaseDevice {
 
     @Override
     public void buttonTwoPressed() {
-        filmTime--;
+        if (filmTime > 0)
+            filmTime--;
+        System.out.println("Playing from " + filmTime + " minute");
     }
 
     @Override
