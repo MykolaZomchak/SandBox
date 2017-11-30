@@ -2,14 +2,17 @@ package patterns.structural.facade;
 
 import shapes.Colors;
 
+/**
+ * Simplifies shape drawing, handles all work with creating instances and working with decorators
+ */
 public interface ShapeDrawer {
 
-    public void draw();
+    void draw();
 
-    public void draw(int count);
+    void draw(int count);
 
-    public void draw(Colors color);
+    void draw(Colors color);
 
-    public void draw(int count, Colors color);
+    void draw(int count, Colors color);
 
 }

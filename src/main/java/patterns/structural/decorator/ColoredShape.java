@@ -3,11 +3,11 @@ package patterns.structural.decorator;
 import shapes.Colors;
 import shapes.Shape;
 
-public class ColoredShapeDecorator extends ShapeDecorator {
+public class ColoredShape extends ShapeDecorator {
 
     private Colors color;
 
-    public ColoredShapeDecorator(Shape shape, Colors color) {
+    public ColoredShape(Shape shape, Colors color) {
         super(shape);
         this.color = color;
     }

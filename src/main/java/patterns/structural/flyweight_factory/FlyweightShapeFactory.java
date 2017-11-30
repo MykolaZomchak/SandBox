@@ -1,7 +1,7 @@
 package patterns.structural.flyweight_factory;
 
-import patterns.structural.decorator.ColoredShapeDecorator;
-import patterns.structural.decorator.ShapeWithHolesDecorator;
+import patterns.structural.decorator.ColoredShape;
+import patterns.structural.decorator.ShapeWithHoles;
 import shapes.Colors;
 import shapes.Shape;
 import shapes.Shapes;
@@ -23,7 +23,7 @@ public class FlyweightShapeFactory extends SimpleShapeFactory {
         Shape shape = shapeMap.get(color);
 
         if (shape == null) {
-            shape = new ColoredShapeDecorator(simpleFactory.createShape(type), color);
+            shape = new ColoredShape(simpleFactory.createShape(type), color);
             shapeMap.put(color, shape);
             System.out.println("Creating " + type + " of " + color + "this" + Colors.NO_COLOR + " color.");
         }
@@ -36,7 +36,7 @@ public class FlyweightShapeFactory extends SimpleShapeFactory {
     }
 
     public Shape createShape(Shapes type, Colors color, double holesArea) {
-        return new ShapeWithHolesDecorator(createShape(type, color), holesArea);
+        return new ShapeWithHoles(createShape(type, color), holesArea);
     }
 
 }

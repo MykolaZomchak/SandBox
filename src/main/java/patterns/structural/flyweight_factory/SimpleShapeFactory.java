@@ -1,7 +1,7 @@
 package patterns.structural.flyweight_factory;
 
-import patterns.structural.decorator.ColoredShapeDecorator;
-import patterns.structural.decorator.ShapeWithHolesDecorator;
+import patterns.structural.decorator.ColoredShape;
+import patterns.structural.decorator.ShapeWithHoles;
 import shapes.*;
 
 public class SimpleShapeFactory extends ShapeFactory {
@@ -18,15 +18,15 @@ public class SimpleShapeFactory extends ShapeFactory {
     }
 
     public Shape createShape(Shapes type, Colors color) {
-        return new ColoredShapeDecorator(createShape(type), color);
+        return new ColoredShape(createShape(type), color);
     }
 
     public Shape createShape(Shapes type, double holesArea) {
-        return new ShapeWithHolesDecorator(createShape(type), holesArea);
+        return new ShapeWithHoles(createShape(type), holesArea);
     }
 
     public Shape createShape(Shapes type, Colors color, double holesArea) {
-        return new ColoredShapeDecorator(createShape(type, holesArea), color);
+        return new ColoredShape(createShape(type, holesArea), color);
     }
 
 }

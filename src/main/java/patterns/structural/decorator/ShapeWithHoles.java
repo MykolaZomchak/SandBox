@@ -2,11 +2,11 @@ package patterns.structural.decorator;
 
 import shapes.Shape;
 
-public class ShapeWithHolesDecorator extends ShapeDecorator{
+public class ShapeWithHoles extends ShapeDecorator{
 
     private double holesArea;
 
-    public ShapeWithHolesDecorator(Shape shape, double holesArea) {
+    public ShapeWithHoles(Shape shape, double holesArea) {
         super(shape);
         this.holesArea = holesArea;
     }
