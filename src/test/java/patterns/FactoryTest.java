@@ -1,3 +1,5 @@
+package patterns;
+
 import org.testng.annotations.Test;
 import patterns.structural.flyweight_factory.SimpleShapeFactory;
 import shapes.Shape;
