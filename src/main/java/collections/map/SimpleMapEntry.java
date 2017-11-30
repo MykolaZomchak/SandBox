@@ -14,17 +14,19 @@ public class SimpleMapEntry<K,V> implements Map.Entry<K, V> {
 
     @Override
     public K getKey() {
-        return null;
+        return key;
     }
 
     @Override
     public V getValue() {
-        return null;
+        return value;
     }
 
     @Override
     public V setValue(V value) {
-        return null;
+        V result = this.value;
+        this.value = value;
+        return result;
     }
 
     @Override
