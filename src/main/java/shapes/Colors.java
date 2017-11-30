@@ -10,7 +10,7 @@ public enum Colors {
 
     private String ansiCode;
 
-    Colors(String ansiCode){
+    Colors(String ansiCode) {
         this.ansiCode = ansiCode;
     }
 
