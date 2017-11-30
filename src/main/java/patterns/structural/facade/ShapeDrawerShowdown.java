@@ -9,7 +9,8 @@ public class ShapeDrawerShowdown {
         ShapeDrawer drawer = new CircleDrawer();
         drawer.draw(3, Colors.BLUE);
         drawer.draw(Colors.RED);
-
+        System.out.println("\nTraffic lights:");
+        drawer.drawTrafficLights();
     }
 
 }

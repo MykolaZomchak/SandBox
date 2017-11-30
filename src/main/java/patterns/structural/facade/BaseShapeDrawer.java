@@ -5,6 +5,10 @@ import patterns.structural.flyweight_factory.FlyweightShapeFactory;
 import patterns.structural.flyweight_factory.SimpleShapeFactory;
 import shapes.*;
 
+import static shapes.Colors.GREEN;
+import static shapes.Colors.RED;
+import static shapes.Colors.YELLOW;
+
 public abstract class BaseShapeDrawer implements ShapeDrawer {
 
     protected Shapes shape;
@@ -40,5 +44,10 @@ public abstract class BaseShapeDrawer implements ShapeDrawer {
         }
     }
 
-
+    @Override
+    public void drawTrafficLights() {
+        new ColoredShape(getShape(), RED).draw();
+        new ColoredShape(getShape(), YELLOW).draw();
+        new ColoredShape(getShape(), GREEN).draw();
+    }
 }

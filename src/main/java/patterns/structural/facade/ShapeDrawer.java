@@ -15,4 +15,6 @@ public interface ShapeDrawer {
 
     void draw(int count, Colors color);
 
+    void drawTrafficLights();
+
 }
