@@ -1,6 +1,7 @@
-package collections;
+package collections.map;
 
 import java.util.AbstractMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
@@ -104,6 +105,14 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
 
     @Override
     public Set<Entry<K, V>> entrySet() {
+        Set<Entry<K,V>> entrySet =  new HashSet<>();
+        for(Node<K, V> list : table){
+            Node<K, V> node = list;
+            while(node!=null){
+                entrySet.add(new SimpleMapEntry<>(node.key, node.value));
+                node = node.next;
+            }
+        }
         return null;
     }
 
@@ -119,5 +128,4 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
             this.next = next;
         }
     }
-
 }
