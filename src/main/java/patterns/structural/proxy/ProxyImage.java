@@ -9,6 +9,15 @@ public class ProxyImage implements Image {
         this.fileName = fileName;
     }
 
+    public String getName() {
+        return fileName;
+    }
+
+    public void setName(String newName) {
+        System.out.println("Not enough rights for that");
+    }
+
+
     @Override
     public void display() {
         if (realImage == null) {

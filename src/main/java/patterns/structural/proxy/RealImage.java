@@ -8,6 +8,14 @@ public class RealImage implements Image {
         loadFromDisk(fileName);
     }
 
+    public String getName() {
+        return fileName;
+    }
+
+    public void setName(String fileName) {
+        this.fileName = fileName;
+    }
+
     @Override
     public void display() {
         System.out.println("Displaying " + fileName);

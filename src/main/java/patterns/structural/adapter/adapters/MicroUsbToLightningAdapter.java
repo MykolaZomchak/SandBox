@@ -5,11 +5,11 @@ import patterns.structural.adapter.datatypes.UsbData;
 import patterns.structural.adapter.ports.Lightning;
 import patterns.structural.adapter.ports.MicroUsb;
 
-public class MicroUsaToLightningAdapter implements MicroUsb {
+public class MicroUsbToLightningAdapter implements MicroUsb {
 
     private Lightning device;
 
-    public MicroUsaToLightningAdapter(Lightning device) {
+    public MicroUsbToLightningAdapter(Lightning device) {
         this.device = device;
     }
 
