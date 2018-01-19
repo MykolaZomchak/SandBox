@@ -38,6 +38,11 @@ public class SignUpLogic {
 
     public void selectBirthMonth(String month) {
         page.getMonthSelect().click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         page.getOption(month).click();
     }
 

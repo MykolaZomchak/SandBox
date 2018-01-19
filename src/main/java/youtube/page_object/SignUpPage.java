@@ -1,5 +1,6 @@
 package youtube.page_object;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -11,63 +12,63 @@ public class SignUpPage extends Page{
     { url = "https://accounts.google.com/SignUp"; }
 
     public WebElement getFirstNameInput() {
-        return driver().findElementById("FirstName");
+        return driver().findElement(By.id("FirstName"));
     }
 
     public WebElement getLastNameInput() {
-        return driver().findElementById("LastName");
+        return driver().findElement(By.id("LastName"));
     }
 
     public WebElement getUsernameInput() {
-        return driver().findElementById("GmailAddress");
+        return driver().findElement(By.id("GmailAddress"));
     }
 
     public WebElement getPasswordInput() {
-        return driver().findElementById("Passwd");
+        return driver().findElement(By.id("Passwd"));
     }
 
     public WebElement getConfirmPasswordInput() {
-        return driver().findElementById("PasswdAgain");
+        return driver().findElement(By.id("PasswdAgain"));
     }
 
     public WebElement getMonthSelect() {
-        return driver().findElementByCssSelector("div[title=\"Birthday\"]");
+        return driver().findElement(By.cssSelector("div[title=\"Birthday\"]"));
     }
 
     public WebElement getDayInput(){
-        return driver().findElementById("BirthDay");
+        return driver().findElement(By.id("BirthDay"));
     }
 
     public WebElement getYearInput(){
-        return driver().findElementById("BirthYear");
+        return driver().findElement(By.id("BirthYear"));
     }
 
     public WebElement getGenderSelect() {
-        return driver().findElementByCssSelector("div[title=\"Gender\"]");
+        return driver().findElement(By.cssSelector("div[title=\"Gender\"]"));
     }
 
     public WebElement getOption(String text) {
-        return driver().findElementByXPath("//div[@class='goog-menuitem']/div[contains(text(),'" + text + "')]");
+        return driver().findElement(By.xpath("//div[@class='goog-menuitem']/div[contains(text(),'" + text + "')]"));
     }
 
     public WebElement getPhoneInput(){
-        return driver().findElementById("RecoveryPhoneNumber");
+        return driver().findElement(By.id(("RecoveryPhoneNumber")));
     }
 
     public WebElement getCurrentEmailInput(){
-        return driver().findElementById("RecoveryEmailAddress");
+        return driver().findElement(By.id(("RecoveryEmailAddress")));
     }
 
     public WebElement getCountrySelect() {
-        return driver().findElementByCssSelector("div[title=\"Location\"]");
+        return driver().findElement(By.cssSelector("div[title=\"Location\"]"));
     }
 
     public WebElement getNextStepButton(){
-        return driver().findElementById("submitbutton");
+        return driver().findElement(By.id("submitbutton"));
     }
 
     public List<WebElement> getErrorMessages(){
-        return driver().findElementsByXPath("//span[@class='errormsg' and string-length(text())>5]");
+        return driver().findElements(By.xpath("//span[@class='errormsg' and string-length(text())>5]"));
     }
 
 

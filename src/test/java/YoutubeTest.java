@@ -12,7 +12,7 @@ import static youtube.DriverManager.kill;
 
 public class YoutubeTest {
 
-    @DataProvider(name = "SignUp")
+    @DataProvider(name = "SignUp", parallel = true)
     public static Iterator<Object[]> credentials() {
         return IOUtils.readCsv("res/tests/sign_up.csv").iterator();
     }
