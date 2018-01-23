@@ -2,15 +2,18 @@ package youtube;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.UnreachableBrowserException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DriverManager {
 
+    private static final Logger logger = LoggerFactory.getLogger(DriverManager.class.getSimpleName());
     private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
     private static int count;
 
@@ -24,23 +27,18 @@ public class DriverManager {
         return drivers.get();
     }
 
-    private static void initializeRemote(){
+    private static synchronized void initializeRemote(){
+        logger.info("Initializing driver on port: " + ports[count%ports.length]);
         try {
             drivers.set(new RemoteWebDriver(new URL("http://10.25.9.237:" + ports[count%ports.length] + "/wd/hub"), new ChromeOptions()));
             drivers.get().manage().window().setPosition(new Point(count*50, count++*50));
-        } catch (MalformedURLException e) {
-            System.out.println("Could not initialize driver" + e);
+        } catch (MalformedURLException|UnreachableBrowserException e) {
+            logger.error("Fatal error: can't initialize Chrome driver on hub http://10.25.9.237:" + ports[count%ports.length] + "/wd/hub", e);
         }
     }
 
-    private static void initializeChrome(){
-        System.setProperty("webdriver.chrome.driver", "res/chromedriver.exe");
-        drivers.set(new ChromeDriver());
-        drivers.get().manage().window().maximize();
-
-    }
-
     public static void kill(){
+        logger.info("Killing driver: " + drivers.get().toString());
         WebDriver driver = drivers.get();
         if(driver==null)
             return;

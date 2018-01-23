@@ -1,5 +1,8 @@
 package youtube;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,9 +15,11 @@ import static java.util.Arrays.copyOfRange;
 
 public class IOUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(IOUtils.class.getSimpleName());
     private static final int PARAMS_COUNT = 12;
 
     public static List<Object[]> readCsv(String name){
+        logger.info("Parsing file: " + name);
         String line;
         List<Object[]> list = new LinkedList<>();
         String[] parts;
@@ -28,7 +33,7 @@ public class IOUtils {
                 list.add(params);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Fatal error: ", e);
         }
         return list;
     }
